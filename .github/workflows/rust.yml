@@ -17,6 +17,12 @@ jobs:
     - name: npm install
       run: cd www && npm install --save
     - name: npm build
-      run: cd www && webpack --config webpack.config.js && ls -lhtr
-    - name: publish
-      run: git config --global user.email "karthik1705.n@gmail.com" && git config --global user.name "Karthik Nedunchezhiyan" && git add . && git commit -m "dist update" && git push origin `git subtree split --prefix www main`:gh-pages --force
+      run: cd www && npm run build 
+    - name: Commit and push if it changed
+      run: |-
+        git config user.name "Automated"
+        git config user.email "actions@users.noreply.github.com"
+        git add -A
+        timestamp=$(date -u)
+        git commit -m "Online version ${timestamp}" || exit 0
+        git push
