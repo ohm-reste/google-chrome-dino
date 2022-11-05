@@ -9,12 +9,12 @@ const CELL_SIZE = 2;
 const ROWS = 300;
 let COLUMNS = 1000;
 const FLOOR_VELOCITY = new Velocity(0, -7);
-let CACTUS_MIN_GAP = 20;
+let CACTUS_MIN_GAP = 40;
 
 if (screen.width < COLUMNS) {
     COLUMNS = screen.width;
     FLOOR_VELOCITY.add(new Velocity(0, 2));
-    CACTUS_MIN_GAP = 50;
+    CACTUS_MIN_GAP = 60;
 }
 
 const DINO_INITIAL_TRUST = new Velocity(-11, 0);
